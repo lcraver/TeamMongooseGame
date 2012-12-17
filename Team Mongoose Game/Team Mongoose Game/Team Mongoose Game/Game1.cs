@@ -18,7 +18,7 @@ namespace Team_Mongoose_Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        SpriteFont font;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,7 +34,7 @@ namespace Team_Mongoose_Game
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            font = Content.Load<SpriteFont>("font");
             base.Initialize();
         }
 
@@ -82,9 +82,9 @@ namespace Team_Mongoose_Game
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, "HerpDerp", new Vector2(0, 0), Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
