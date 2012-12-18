@@ -18,11 +18,12 @@ namespace Team_Mongoose_Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        GameState gameState;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            gameState = new GameState();
         }
 
         /// <summary>
@@ -33,7 +34,7 @@ namespace Team_Mongoose_Game
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            gameState.Initilize();
             base.Initialize();
         }
 
@@ -69,7 +70,8 @@ namespace Team_Mongoose_Game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            //See GameState for details
+            gameState.Update();
 
             base.Update(gameTime);
         }
@@ -80,8 +82,10 @@ namespace Team_Mongoose_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+            GraphicsDevice.Clear(Color.Black);
+            // See GameState for details
+            gameState.Draw();
+
             base.Draw(gameTime);
         }
     }
