@@ -1,1 +1,1 @@
-This is the game developed for Team Mongoose
+This is the game inspired by Team Mongoose
