@@ -84,7 +84,7 @@ namespace Team_Mongoose_Game
         {
             GraphicsDevice.Clear(Color.Black);
             // See GameState for details
-            gameState.Draw();
+            gameState.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }

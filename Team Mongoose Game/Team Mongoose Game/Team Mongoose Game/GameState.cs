@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Team_Mongoose_Game
 {
@@ -10,10 +17,13 @@ namespace Team_Mongoose_Game
         enum States { MainMenu, Running, Paused, Credits };
 
         States current;
+        MainMenu menu;
 
         public void Initilize()
         {
             current = States.MainMenu;
+            menu = new MainMenu();
+            menu.Initilize();
         }
 
         public void Update()
@@ -37,24 +47,24 @@ namespace Team_Mongoose_Game
             }
 
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
             switch (current)
             {
                 case States.MainMenu:
-                    DrawMenu();
+                    DrawMenu(spriteBatch);
                     break;
                 case States.Running:
-                    DrawRunning();
+                    DrawRunning(spriteBatch);
                     break;
                 case States.Paused:
-                    DrawPaused();
+                    DrawPaused(spriteBatch);
                     break;
                 case States.Credits:
-                    DrawCredits();
+                    DrawCredits(spriteBatch);
                     break;
                 default:
-                    DrawMenu();
+                    DrawMenu(spriteBatch);
                     break;
             }
         }
@@ -63,7 +73,7 @@ namespace Team_Mongoose_Game
 
         public void UpdateMenu()
         {
-
+            menu.Update();
         }
         public void UpdateRunning()
         {
@@ -79,19 +89,19 @@ namespace Team_Mongoose_Game
         }
 
 
-        public void DrawMenu()
+        public void DrawMenu(SpriteBatch spriteBatch)
+        {
+            menu.Draw(spriteBatch);
+        }
+        public void DrawRunning(SpriteBatch spriteBatch)
         {
 
         }
-        public void DrawRunning()
+        public void DrawPaused(SpriteBatch spriteBatch)
         {
 
         }
-        public void DrawPaused()
-        {
-
-        }
-        public void DrawCredits()
+        public void DrawCredits(SpriteBatch spriteBatch)
         {
 
         }
